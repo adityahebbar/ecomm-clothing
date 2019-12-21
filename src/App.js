@@ -28,7 +28,7 @@ class App extends React.Component {
 
         // subscription to changes in data in the firestore
         userRef.onSnapshot(snapshot => {
-          this.setState({
+          this.unsubscribeFromSnapshot = this.setState({
             signedInUser: { id: snapshot.id, ...snapshot.data() }
           });
         });
@@ -40,6 +40,7 @@ class App extends React.Component {
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
+    this.unsubscribeFromSnapshot();
   }
 
   render() {
