@@ -15,6 +15,8 @@ $google-color: #4285f4;
   font-weight: bolder;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 
   &.google-auth-button {
     background-color: #4285f4;
@@ -24,6 +26,16 @@ $google-color: #4285f4;
       background-color: darken($google-color, 1.1);
       color: white;
       border: none;
+    }
+  }
+
+  &.inverted {
+    background-color: white;
+    color: black;
+
+    &:hover {
+      background-color: black;
+      color: white;
     }
   }
 

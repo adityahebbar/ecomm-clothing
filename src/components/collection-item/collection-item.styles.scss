@@ -4,6 +4,24 @@
   flex-direction: column;
   height: 350px;
   align-items: center;
+  position: relative;
+
+  &:hover {
+    .image {
+      opacity: 0.8;
+    }
+
+    .custom-button {
+      display: flex;
+      opacity: 0.8;
+    }
+  }
+
+  .custom-button {
+    position: absolute;
+    top: 255px;
+    display: none;
+  }
 
   .image {
     width: 100%;

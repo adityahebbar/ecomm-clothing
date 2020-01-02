@@ -10,7 +10,7 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import './header.styles.scss';
 import { auth } from '../../firebase/firebase.utils';
 
-const Header = ({ signedInUser, cartDropdownVisible }) => {
+const Header = ({ signedInUser, cartDropdownHidden }) => {
     return (
         <div className="header">
             <Link to="/" className="logo-container">
@@ -26,7 +26,7 @@ const Header = ({ signedInUser, cartDropdownVisible }) => {
                 }
                 <CartIcon />
             </div>
-            {cartDropdownVisible ? <CartDropdown /> : null}
+            {!cartDropdownHidden ? <CartDropdown /> : null}
         </div>
     );
 }
@@ -34,7 +34,7 @@ const Header = ({ signedInUser, cartDropdownVisible }) => {
 function mapStateToProps(state) {
     return {
         signedInUser: state.user.currentUser,
-        cartDropdownVisible: state.cart.hidden
+        cartDropdownHidden: state.cart.hidden
     }
 }
 
