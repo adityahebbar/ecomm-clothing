@@ -8,12 +8,12 @@
   border: 1px solid black;
   margin: 0 7.5px 15px;
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
   transition: background-size 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;
-    background-size: 110%;
+    background-size: cover;
 
     .content {
       transform: scale(0.9);
