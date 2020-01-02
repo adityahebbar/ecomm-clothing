@@ -4,10 +4,13 @@ import { connect } from 'react-redux';
 
 import { ReactComponent as Logo } from '../../assets/svg/crown.svg';
 
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+
 import './header.styles.scss';
 import { auth } from '../../firebase/firebase.utils';
 
-const Header = ({ signedInUser }) => {
+const Header = ({ signedInUser, cartDropdownVisible }) => {
     return (
         <div className="header">
             <Link to="/" className="logo-container">
@@ -21,14 +24,17 @@ const Header = ({ signedInUser }) => {
                         <div className="option" onClick={() => { auth.signOut() }}>SIGN OUT</div> :
                         <Link to="/signIn" className="option">SIGN IN</Link>
                 }
+                <CartIcon />
             </div>
+            {cartDropdownVisible ? <CartDropdown /> : null}
         </div>
     );
 }
 
 function mapStateToProps(state) {
     return {
-        signedInUser: state.user.currentUser
+        signedInUser: state.user.currentUser,
+        cartDropdownVisible: state.cart.hidden
     }
 }
 
